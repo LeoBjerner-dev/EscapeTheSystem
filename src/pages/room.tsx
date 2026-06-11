@@ -1,6 +1,7 @@
 import rooms from "../data/rooms.json"
 import { useParams } from 'react-router-dom'
 
+const solved = false
 const Room = () => {
     const { roomPath } = useParams();
 
@@ -14,13 +15,21 @@ const Room = () => {
     return (
         <>
             <h1>{room.roomName}</h1>
-            <p>{room.unsolvedInstruction}</p>
+            <p>
+                {solved ? room.solvedInstruction : room.unsolvedInstruction}
+            </p>
 
-            <img
-                src={room.unsolvedImage} alt={room.roomName}
+            <p>{room.hint}</p>
+            <img src={
+                solved
+                    ? room.solvedImage
+                    : room.unsolvedImage
+            }
+                alt={room.roomName}
             />
         </>
+
     );
-};
+}
 
 export default Room
