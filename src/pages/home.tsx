@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 
 export const Home = () => {
+   
 
   return (
     <div>
@@ -10,6 +11,7 @@ export const Home = () => {
       {rooms.map((room) => (
         <Link to={room.roomPath}>
             <h3>{room.roomName}</h3>
+            <img src={room.unsolvedImage} alt={room.roomName} />
         </Link>
         
       ))}
