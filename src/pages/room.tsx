@@ -6,10 +6,10 @@ import items from "../data/items.json"
 import { Link } from "react-router-dom"
 
 
+
 const Room = () => {
 
     const { roomPath } = useParams();
-
     const inventory = useContext(InventoryContext)
     if (!inventory) return null;
 
@@ -21,10 +21,13 @@ const Room = () => {
     }
 
     const solved = inventory.selectedItem === room.itemToSolve;
+
+
     const rewardItem = items.find(
         (item) => item.id === room.itemToAdd
 
     );
+
     if (
         solved && rewardItem && !inventory.ItemsInventory.some(
             (item) => item.id === rewardItem.id
@@ -62,6 +65,16 @@ const Room = () => {
                     <Link to="/">
                         <button>
                             back to overview
+                        </button>
+                    </Link>
+                </div>
+            )}
+
+            {solved && room.roomPath === "exit-node" && (
+                <div>
+                    <Link to="/victory">
+                        <button>
+                            Escape Facility
                         </button>
                     </Link>
                 </div>
