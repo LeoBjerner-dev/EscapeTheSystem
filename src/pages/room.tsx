@@ -39,7 +39,7 @@ const Room = () => {
         <>
             <h1>{room.roomName}</h1>
 
-            <p>selected item: {inventory.selectedItem}</p>
+
 
             <p>
                 {solved
@@ -62,11 +62,6 @@ const Room = () => {
 
                     <img src={rewardItem.image} alt={rewardItem.item} width={100} />
 
-                    <Link to="/">
-                        <button>
-                            back to overview
-                        </button>
-                    </Link>
                 </div>
             )}
 
@@ -79,6 +74,11 @@ const Room = () => {
                     </Link>
                 </div>
             )}
+            <Link to="/">
+                <button>
+                    back to overview
+                </button>
+            </Link>
         </>
 
     );

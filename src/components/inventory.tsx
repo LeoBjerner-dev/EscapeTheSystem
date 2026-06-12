@@ -21,7 +21,13 @@ const inventory = () => {
                     {item.item}
                 </button>
             ))}
-            <p>selected item: {inventory.selectedItem}</p>
+            <p>
+                Selected Item: {
+                    inventory.ItemsInventory.find(
+                        (item) => item.id === inventory.selectedItem
+                    )?.item
+                }
+            </p>
         </>
     )
 }

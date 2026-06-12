@@ -12,6 +12,11 @@ export const Home = () => {
     return (
         <>
             <h1>Escape the System</h1>
+            <h2>
+                You are trapped inside Project NEXUS, a high-security AI research facility.
+                Explore each room, solve puzzles, collect items and find a way to escape
+                before the rogue AI takes full control.
+            </h2>
 
             {rooms.map((room) => {
                 const solved =
