@@ -23,8 +23,6 @@ a {
     text-decoration: none;
 }
 
-/* Home */
-
 .home-container {
     padding: 2rem;
     text-align: center;
@@ -53,8 +51,6 @@ a {
     margin-top: 3rem;
 }
 
-/* Room Cards */
-
 .room-card {
     text-align: center;
     border: 1px solid var(--border);
@@ -77,12 +73,11 @@ a {
     margin-bottom: 0.75rem;
 }
 
-/* Inventory */
 
 .inventory {
     background-color: var(--surface);
     border-top: 1px solid var(--border);
-    padding: 3rem;
+    padding: 0.5rem;
     gap: 1rem;
 
     display: flex;
