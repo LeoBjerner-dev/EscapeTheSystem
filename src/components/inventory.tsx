@@ -8,19 +8,22 @@ const inventory = () => {
     if (!inventory) return null;
 
     return (
-        <>
+        <div className="inventory">
             <h2>inventory</h2>
-            {inventory.ItemsInventory.map((item) => (
-                <button
-                    key={item.id}
-                    onClick={() => inventory.setSelectedItem(item.id)}
-                >
-                    <img src={item.image} alt={item.item} width={50} />
+            <div className="inventory-items">
+                {inventory.ItemsInventory.map((item) => (
+                    <button
+                        className="inventory-button"
+                        key={item.id}
+                        onClick={() => inventory.setSelectedItem(item.id)}
+                    >
+                        <img src={item.image} alt={item.item} width={50} />
 
 
-                    {item.item}
-                </button>
-            ))}
+                        {item.item}
+                    </button>
+                ))}
+            </div>
             <p>
                 Selected Item: {
                     inventory.ItemsInventory.find(
@@ -28,7 +31,7 @@ const inventory = () => {
                     )?.item
                 }
             </p>
-        </>
+        </div>
     )
 }
 

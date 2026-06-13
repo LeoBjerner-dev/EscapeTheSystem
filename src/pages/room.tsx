@@ -36,7 +36,7 @@ const Room = () => {
         inventory.addNewItem(rewardItem)
     }
     return (
-        <>
+        <div className="room-container">
             <h1>{room.roomName}</h1>
 
 
@@ -68,18 +68,18 @@ const Room = () => {
             {solved && room.roomPath === "exit-node" && (
                 <div>
                     <Link to="/victory">
-                        <button>
+                        <button className="escape-btn">
                             Escape Facility
                         </button>
                     </Link>
                 </div>
             )}
             <Link to="/">
-                <button>
+                <button className="back-btn">
                     back to overview
                 </button>
             </Link>
-        </>
+        </div>
 
     );
 }
