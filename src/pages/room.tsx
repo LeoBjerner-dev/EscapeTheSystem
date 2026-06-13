@@ -75,7 +75,7 @@ const Room = () => {
                 </div>
             )}
             <Link to="/">
-                <button className="back-btn">
+                <button className="back-btn" onClick={() => inventory.setSelectedItem(null)}>
                     back to overview
                 </button>
             </Link>
