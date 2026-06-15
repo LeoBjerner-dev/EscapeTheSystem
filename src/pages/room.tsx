@@ -1,5 +1,5 @@
 import rooms from "../data/rooms.json"
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { useContext } from "react"
 import { InventoryContext } from "../InventoryProvider"
 import items from "../data/items.json"
@@ -11,6 +11,7 @@ import { useState } from "react"
 const Room = () => {
 
     const { roomPath } = useParams();
+    const navigate = useNavigate();
     const inventory = useContext(InventoryContext)
     if (!inventory) return null;
 
@@ -72,11 +73,9 @@ const Room = () => {
 
             {solved && room.roomPath === "exit-node" && (
                 <div>
-                    <Link to="/victory">
-                        <button className="escape-btn">
-                            Escape Facility
-                        </button>
-                    </Link>
+                    <button className="escape-btn" onClick={() => navigate("/victory")}>
+                        Escape Facility
+                    </button>
                 </div>
             )}
             <Link to="/">
