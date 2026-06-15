@@ -1,9 +1,12 @@
 import { useContext } from "react"
 import { InventoryContext } from "../InventoryProvider"
+import { useLocation } from "react-router-dom";
 
 
 const inventory = () => {
     const inventory = useContext(InventoryContext);
+    const location = useLocation();
+    const canSelectItems = location.pathname.includes("/room/")
 
     if (!inventory) return null;
 
@@ -15,6 +18,7 @@ const inventory = () => {
                     <button
                         className="inventory-button"
                         key={item.id}
+                        disabled={!canSelectItems}
                         onClick={() => inventory.setSelectedItem(item.id)}
                     >
                         <img src={item.image} alt={item.item} width={50} />

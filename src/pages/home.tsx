@@ -39,13 +39,11 @@ export const Home = () => {
                             <div className="room-card">
                                 <h2>{room.roomName}</h2>
 
-                                <img src={
-                                    solved
-                                        ? room.solvedImage
-                                        : room.unsolvedImage
-                                }
+                                <img
+                                    src={solved ? room.solvedImage : room.unsolvedImage}
                                     alt={room.roomName}
                                     width={200}
+                                    className={solved ? "solved-image" : ""}
                                 />
                             </div>
                         </Link>

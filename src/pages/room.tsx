@@ -4,6 +4,7 @@ import { useContext } from "react"
 import { InventoryContext } from "../InventoryProvider"
 import items from "../data/items.json"
 import { Link } from "react-router-dom"
+import { useState } from "react"
 
 
 
@@ -35,6 +36,7 @@ const Room = () => {
     ) {
         inventory.addNewItem(rewardItem)
     }
+    const [showHint, setShowHint] = useState(false);
     return (
         <div className="room-container">
             <h1>{room.roomName}</h1>
@@ -47,7 +49,10 @@ const Room = () => {
                     : room.unsolvedInstruction}
             </p>
 
-            <p>{room.hint}</p>
+            <button className="hint-btn" onClick={() => setShowHint(!showHint)}>Hint</button>
+            {showHint && (
+                <p className="hint-txt">{room.hint}</p>
+            )}
             <img src={
                 solved
                     ? room.solvedImage

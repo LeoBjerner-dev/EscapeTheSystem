@@ -211,3 +211,41 @@ a {
     margin: 2rem 0;
     border-radius: 10px;
 }
+
+.solved-image {
+    box-shadow:
+        0 0 10px limegreen,
+        0 0 20px limegreen,
+        0 0 40px limegreen;
+    border-radius: 10px;
+}
+
+.hint-btn {
+    display: block;
+    margin: 15px auto;
+
+    padding: 10px 20px;
+    background-color: #1a1a1a;
+    color: white;
+    border: 1px solid #00aa44;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.hint-btn:hover {
+    box-shadow: 0 0 10px #00aa44;
+}
+
+.hint-txt {
+    margin: 15px auto;
+    padding: 12px;
+    max-width: 500px;
+
+    background-color: rgba(255, 165, 0, 0.1);
+    border: 1px solid orange;
+    border-radius: 8px;
+
+    color: orange;
+    font-style: italic;
+}
