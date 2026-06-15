@@ -10,12 +10,12 @@ const App = () => {
   return (
     <BrowserRouter>
       <InventoryProvider>
-        <Inventory />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/room/:roomPath" element={<Room />} />
           <Route path="/victory" element={<Victory />} />
         </Routes>
+        <Inventory />
       </InventoryProvider>
     </BrowserRouter>
   );

@@ -15,6 +15,8 @@ interface InventoryContextType {
 
   selectedItem: number | null;
   setSelectedItem: (itemId: number | null) => void;
+
+  resetGame: () => void;
 }
 
 export const InventoryContext = createContext<InventoryContextType | null>(null)
@@ -28,13 +30,17 @@ export const InventoryProvider = ({ children }: { children: React.ReactNode }) =
 
     setItemsInventory([...ItemsInventory, newItem])
   }
-
+  const resetGame = () => {
+    setItemsInventory([items.find((i) => i.id === 1)!]);
+    setSelectedItem(null);
+  }
   return (
     <InventoryContext.Provider value={{
       addNewItem,
       ItemsInventory,
       selectedItem,
       setSelectedItem,
+      resetGame,
     }}>
       {children}
     </InventoryContext.Provider>
