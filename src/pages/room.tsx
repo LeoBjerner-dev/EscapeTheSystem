@@ -1,10 +1,9 @@
 import rooms from "../data/rooms.json"
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, useSearchParams } from 'react-router-dom'
 import { useContext } from "react"
 import { InventoryContext } from "../InventoryProvider"
 import items from "../data/items.json"
 import { Link } from "react-router-dom"
-import { useState } from "react"
 
 
 
@@ -37,7 +36,18 @@ const Room = () => {
     ) {
         inventory.addNewItem(rewardItem)
     }
-    const [showHint, setShowHint] = useState(false);
+    const [searchParams, setSearchParams] = useSearchParams();
+    const showHint = searchParams.get("hint") === "true";
+
+    const toggleHint = () => {
+        if (showHint) {
+            searchParams.delete("hint");
+        } else {
+            searchParams.set("hint", "true");
+        }
+        setSearchParams(searchParams);
+    };
+
     return (
         <div className="room-container">
             <h1>{room.roomName}</h1>
@@ -50,7 +60,7 @@ const Room = () => {
                     : room.unsolvedInstruction}
             </p>
 
-            <button className="hint-btn" onClick={() => setShowHint(!showHint)}>Hint</button>
+            <button className="hint-btn" onClick={toggleHint}>Hint</button>
             {showHint && (
                 <p className="hint-txt">{room.hint}</p>
             )}
